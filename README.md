@@ -17,30 +17,7 @@ The repository has been tested in Ubuntu 20.04 with ROS Noetic. To setup OSM-gui
 - [livox_ros_driver2](https://github.com/Livox-SDK/livox_ros_driver2)
 
 2. Quick Start
-```bash
-### front end ###
-roslaunch fast_lio mapping_avia_rot.launch
-```
-```bash
-### terrain_analysis ###
-roslaunch vehicle_simulator system_real_robot.launch
-```
-```bash
-### waypoint ###
-roslaunch osmplanner osmplanner.launch
-```
-```bash
-### gps follow ###
-roslaunch gps_follow ini_gps.launch
-```
-```bash
-### active loop closure ###
-roslaunch gps_follow active_loop.launch
-```
-```bash
-### back end ###
-roslaunch aloam_velodyne fastlio_ouster64.launch
-```
+
 
 # Reference:
 Wei Gao, Zezhou Sun, Mingle Zhao, Chengzhong Xu, and Hui Kong, Active Loop Closure for OSM-guided Robotic Mapping in Large-Scale Urban Environment, 
