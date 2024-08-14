@@ -28,7 +28,7 @@ roslaunch fast_lio mapping_avia_rot.launch
 
 ```bash
 ### terrain_analysis ###
-roslaunch vehicle_simulator system_real_robot.launch
+roslaunch vehicle_simulator system_osm_follow.launch
 ```
 
 ```bash
