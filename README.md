@@ -17,8 +17,8 @@ The repository has been tested in Ubuntu 20.04 with ROS Noetic. To setup OSM-gui
 - [livox_ros_driver2](https://github.com/Livox-SDK/livox_ros_driver2)
 
 2. OSM(OpenStreetMap) Global Path Generation
-step 1: Download the OSM file for the area to be explored
-step 2: Follow osmplanner.ipynb to generate the optimal global path
+- 1.Download the OSM file for the area to be explored
+- 2.Follow osmplanner.ipynb to generate the optimal global path
 
 3. Quick Start
 ```bash
