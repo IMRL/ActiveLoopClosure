@@ -1,0 +1,10 @@
+<launch>
+    <arg name="octomap_param_file" default="$(find osmplanner)/config/octo_livox.yaml" />
+
+    <rosparam command="load" file="$(arg octomap_param_file)" />
+
+    <node  pkg="osmplanner" type = "osm_waypoint" name="osm_waypoint" output="screen"/>
+    <node  pkg="osmplanner" type = "osm_grid" name="osm_grid" output="screen"/>
+
+    <!-- <node launch-prefix="nice" pkg="rviz" type="rviz" name="road_rviz" args="-d $(find osmplanner)/rviz/road.rviz" /> -->
+</launch>

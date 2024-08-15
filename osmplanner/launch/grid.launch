@@ -1,0 +1,18 @@
+<launch>
+
+  <arg name="octomap_param_file" default="$(find osmplanner)/config/octo_livox.yaml" />
+
+  <rosparam command="load" file="$(arg octomap_param_file)" />
+
+  <!-- <node name="octomap_server" pkg="octomap_server" type="octomap_server_node" output="screen">
+    <rosparam command="load" file="$(arg octomap_param_file)"/>
+    <remap from= "/cloud_in" to = "/livox/lidar/sensor_pointcloud2"/>
+    
+  </node> -->
+
+  <node  pkg="osmplanner" type = "osm_grid" name="osm_grid" output="screen"/>
+  
+  <node launch-prefix="nice" pkg="rviz" type="rviz" name="road_rviz" args="-d $(find osmplanner)/rviz/road.rviz" />
+
+
+</launch>

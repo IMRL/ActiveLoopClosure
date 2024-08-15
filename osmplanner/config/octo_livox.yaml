@@ -1,0 +1,122 @@
+# resolution: 0.05
+# frame_id: livox
+# sensor_model/max_range: 10.0
+# sensor_model/hit: 0.6
+# sensor_model/miss: 0.5
+# sensor_model/min: 0.12
+# sensor_model/max: 0.97
+# input_topics: [/livox/lidar/sensor_pointcloud2]
+
+grid/world_frame_id: map
+# grid/odomSubTopic: /Odometry
+grid/odomSubTopic: /fusedOdom
+grid/terrainCloudSubTopic: /terrain_RF
+grid/pubGridPointsTopic: /occpancy_grid_map
+grid/kMapWidth: 40
+grid/kGridSize: 0.1
+grid/kDownsampleSize: 0.05
+grid/kFlyingObstacleHeightThre: 1.0
+grid/kObstacleHeightThre: 0.2
+grid/kCollisionCheckX: 5
+grid/kCollisionCheckY: 5
+grid/pubRayCastPointsTopic: /rayCast_point
+grid/rayCastLineTopic: /rayCast_line
+grid/pubRoadLineTopic: /Road_line
+# 0:没有过滤,1:sor过滤,2:ror过滤
+grid/raycastFilterType: 0
+grid/sorFilter/Meank: 5 
+grid/sorFilter/stddev: 0.5
+
+grid/rorFilter/radiusSearch: 0.8
+grid/rorFilter/Min_neighbors: 3
+
+grid/cluster_topic: /road_cluster
+grid/pub_Cut_RayCast_topic: /rayCast_point_Cut
+grid/rayCast_Cutdegree: 200
+grid/rayCast_near_range: 3
+grid/k_max_radius: 0.8 #最大raycast范围
+grid/pub_contours_topic: /contours_cloud
+
+DBSCAN/CorePointMinPts: 2
+DBSCAN/ClusterTolerance: 0.8
+DBSCAN/MinClusterSize: 50
+DBSCAN/MaxClusterSize: 400
+
+# PCD_save_Path_1: 
+# PCD_save_Path_2: 
+PCD_SaveOrNot: false
+
+# IMG_save_Path: 
+img_saveorNot: false
+
+
+#Octomap Parameters
+
+octo/tfFrame: map
+octo/robotFrame: map
+octo/resolution: 0.35
+octo/probabilityHit: 0.65
+octo/probabilityMiss: 0.4
+octo/thresholdMin: 0.12
+octo/thresholdMax: 0.97
+octo/thresholdOccupancy: 0.7
+octo/filterSpeckles: true
+octo/maxFreeSpace: 0.0
+octo/minHeightFreeSpace: 0.0
+octo/sensorMaxRange: 15. 0
+octo/visualizeMinZ: -25.0
+octo/visualizeMaxZ: 25.0
+octo/mapPublishFrequency: 1.0
+octo/treatUnknownAsOccupied: false
+octo/changeDetectionEnabled: false
+octo/velodyne_cloud_topic: /terrain_map_ext
+
+
+#osmplanner Parameters
+
+# osmplanner/odomSubTopic: /Odometry
+osmplanner/odomSubTopic: /fusedOdom
+# osmplanner/pclSubTopic: /rayCast_point_Cut
+osmplanner/pclSubTopic: /contours_cloud
+# osmplanner/sub_raycast_topic:
+osmplanner/sub_waypoint_topic: /way_point_osm
+osmplanner/pub_waypoint_topic: /way_point
+osmplanner/pub_road_info: /road_center_point
+osmplanner/road_peaks_N: 3
+osmplanner/global_frame_id: map
+# 调整道路峰值间隔得分;
+osmplanner/kgain_interval: 2
+#调整道路峰值间平坦程度得分:
+osmplanner/kgain_flatness: -0.8 #这里负的越多占比越多
+osmplanner/kgain_distance: 1.2
+
+##道路峰值处理相关参数;
+#step1 剔除低峰值:
+osmplanner/road_peak/threshold_ratio: 0.3
+#step2 合并接近的峰值:
+osmplanner/road_peak/threshold_distance: 0.12
+#STEP 3: 根据两峰之间的谷值过滤:
+osmplanner/road_peak/valley_threshold: 1.5
+
+# waypoint相关:
+# osmplanner/waypoint_scores/K_density_scores: 0.8
+/osmplanner/waypoint_scores/K_dis_OSM_scores: 1.2
+osmplanner/waypoint_scores/K_distance_scores: 0.7
+osmplanner/waypoint_scores/K_angle_scores: 1.4
+# /osmplanner/waypoint_scores/K_dis_OSM_scores: 0
+# osmplanner/waypoint_scores/K_distance_scores: 0
+# osmplanner/waypoint_scores/K_angle_scores: 0
+osmplanner/waypoint_scores/K_change_scores: 1.0
+osmplanner/pub_waypoint_scores_topic: /waypoint_scores
+
+osmplanner/modify_waypoint/osm_score_MAX_DISTANCE: 40
+
+#waypoint 粒子滤波参数：
+
+waypointPF/sigma_theta: 0.05
+waypointPF/sigma_d: 0.05
+waypointPF/sub_waypoint_topic: /way_point_osm
+waypointPF/sub_local_waypoint_topic: /way_point
+waypointPF/pub_waypoint_topic: /way_point_PF
+
+
