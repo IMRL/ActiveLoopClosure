@@ -1,0 +1,61 @@
+<launch>
+
+  <!-- liosam-6axis -->
+  <!-- <node pkg="loam_interface" type="loamInterface" name="loamInterface" output="screen" required="true">
+    <param name="stateEstimationTopic" type="string" value="/lio_sam_6axis/mapping/odometry" />
+    <param name="registeredScanTopic" type="string" value="/lio_sam_6axis/mapping/cloud_registered" />
+    <param name="flipStateEstimation" type="bool" value="false" />
+    <param name="flipRegisteredScan" type="bool" value="false" />
+    <param name="sendTF" type="bool" value="true" />
+    <param name="reverseTF" type="bool" value="false" />
+  </node> -->
+
+  <!-- <node pkg="loam_interface" type="loamInterface" name="loamInterface" output="screen" required="true">
+    <param name="stateEstimationTopic" type="string" value="/aft_mapped_to_init_high_frec" />
+    <param name="registeredScanTopic" type="string" value="/velodyne_cloud_registered" />
+    <param name="flipStateEstimation" type="bool" value="true" />
+    <param name="flipRegisteredScan" type="bool" value="true" />
+    <param name="sendTF" type="bool" value="true" />
+    <param name="reverseTF" type="bool" value="false" />
+  </node> -->
+
+  <!-- fastlio2 -->
+  <node pkg="loam_interface" type="loamInterface" name="loamInterface" output="screen" required="true">
+
+    <param name="stateEstimationTopic" type="string" value="/Odometry" />
+
+    <param name="registeredScanTopic" type="string" value="/cloud_registered" />
+    <param name="flipStateEstimation" type="bool" value="false" />
+    <param name="flipRegisteredScan" type="bool" value="false" />
+    <param name="sendTF" type="bool" value="true" />
+    <param name="reverseTF" type="bool" value="false" />
+  </node>
+
+
+<!-- fastlio2 + scpgo -->
+
+<!-- <node pkg="loam_interface" type="loamInterface" name="loamInterface" output="screen" required="true">
+
+  <param name="stateEstimationTopic" type="string" value="/fusedOdom" />
+  <param name="registeredScanTopic" type="string" value="/aft_pgo_pcl" />
+  <param name="flipStateEstimation" type="bool" value="false" />
+  <param name="flipRegisteredScan" type="bool" value="false" />
+  <param name="sendTF" type="bool" value="true" />
+  <param name="reverseTF" type="bool" value="false" />
+
+</node> -->
+
+  <!-- Dlio+pgo -->
+  <!-- <node pkg="loam_interface" type="loamInterface" name="loamInterface" output="screen" required="true">
+    <param name="stateEstimationTopic" type="string" value="/rotated_odometry" />
+    <param name="stateEstimationTopic" type="string" value="/robot/dlio/odom_node/odom" />
+    <param name="registeredScanTopic" type="string" value="/rotated_pointcloud" />
+    <param name="registeredScanTopic" type="string" value="/robot/dlio/odom_node/pointcloud/deskewed" />
+    <param name="flipStateEstimation" type="bool" value="false" />
+    <param name="flipRegisteredScan" type="bool" value="false" />
+    <param name="sendTF" type="bool" value="true" />
+    <param name="reverseTF" type="bool" value="false" />
+  </node> -->
+
+
+</launch>
