@@ -1,0 +1,24 @@
+<launch>
+    <param name="/use_sim_time" value="true" />
+
+    <node pkg="gps_follow" type="active_loop_laplacian" name="active_loop_laplacian" output="screen" >
+        <!-- scene5 sea Param: from dog -->
+        <param name="gnss_erro" type="double" value="2.5" />
+        <param name ="pose_erro" type = "double" value = "3" />
+        <param name = "saveTXT" type="bool" value = "false" />
+        <param name ="Yaw_uncertain" type = "double" value = "12" />
+        <!-- <param name ="aware_uncertain" type = "double" value = "0.07" /> -->
+        <param name = "active_dis" type = "double" value = "1.5"/>
+        <param name = "active_time" type = "double" value ="0.5"/>
+        <param name ="active_uncertain" type ="double" value="0.2"/>
+        <param name = "loop_weight" type = "double" value ="100" />
+        <param name = "osm_pose_dis" type = "double" value ="5" />
+        <param name = "visitedCoefficient" type ="double" value ="3"/>
+        <param name = "node_gap" type="double" value = "20" />
+
+        <param name = "arive_node_dis1" type = "double" value = "18" />
+        <param name = "arive_node_dis2" type = "double" value = "18" />
+
+    </node>
+
+</launch>

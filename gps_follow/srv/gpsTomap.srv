@@ -1,0 +1,12 @@
+# gps坐标到建图坐标系的转化。
+# 请求部分
+sensor_msgs/NavSatFix input_gps_point
+geometry_msgs/PointStamped input_map_point
+string conversion_direction # "gps_to_map" 或 "map_to_gps"
+
+---
+# 响应部分
+sensor_msgs/NavSatFix output_gps_point
+geometry_msgs/PointStamped output_map_point
+bool success
+string message

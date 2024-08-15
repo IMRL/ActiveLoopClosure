@@ -1,0 +1,19 @@
+<launch>
+
+    <param name="/use_sim_time" value="true" />
+
+
+    <node pkg="gps_follow" type="ini_gps" name="ini_gps" output="screen" >
+        <param name="max_osm_dis" type="double" value="15" /> 
+        <param name="current_index_incl" type="double" value="200" /> 
+        <param name="save_tum" type="bool" value="false" /> 
+        <!-- <param name="tum_save_path" type="string" value="$(find gps_follow)/results/" />  -->
+        <param name="osm_traj_path" type="string" value="$(find gps_follow)/osm_path/scene5_sea_osm_interpolated_v1.txt" /> 
+        <param name="osm_graph_path" type = "string" value="$(find gps_follow)/osm_path/scene5_sea_osm_gps_v1.txt"/>
+        <param name="initial_time" type="double" value="20" /> 
+        <param name="x_offset" type="double" value="-2" />
+        <param name="y_offset" type="double" value="-5.1" /> 
+        <param name="rotation_offset_angle" type="double" value="0.025" /> 
+    </node>
+
+</launch>
