@@ -1,0 +1,8 @@
+<launch>
+
+  <arg name="randomF_file" default="$(find terrain_rf)/config/randomF.yaml" />
+  <rosparam command="load" file="$(arg randomF_file)" />
+
+  <node  pkg="terrain_rf" type = "terrain_rf" name="terrain_rf" output="screen"/>
+
+</launch>

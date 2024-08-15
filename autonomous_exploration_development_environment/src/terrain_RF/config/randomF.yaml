@@ -1,0 +1,7 @@
+/terrain_RF/sub_pcl_topic: /terrain_map_ext
+/terrain_RF/pub_terrain_cloud_topic: /terrain_RF
+# /terrain_RF/model_file: ../RF_model/model_night_slope.bin
+/terrain_RF/model_file: /home/gw/exploration/nav/nav_open_ws/src/autonomous_exploration_development_environment/src/terrain_RF/RF_model/model_night_slope.bin
+/terrain_RF/pcd_saveOrnot: false
+/terrain_RF/pcd_save_path: ../PCD/
+/terrain_RF/DSleafsize: 0.05
