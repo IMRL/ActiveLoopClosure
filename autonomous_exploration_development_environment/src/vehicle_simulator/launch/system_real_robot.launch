@@ -1,0 +1,33 @@
+<launch>
+  <param name="use_sim_time" value="true" />
+  <arg name="cameraOffsetZ" default="0"/>
+  <arg name="vehicleX" default="0"/>
+  <arg name="vehicleY" default="0"/>
+  <arg name="checkTerrainConn" default="false"/>
+
+  <!-- <include file="$(find ps3joy)/launch/ps3.launch" /> -->
+
+  <include file="$(find local_planner)/launch/local_planner.launch" >
+    <arg name="cameraOffsetZ" value="$(arg cameraOffsetZ)"/>
+    <arg name="goalX" value="$(arg vehicleX)"/>
+    <arg name="goalY" value="$(arg vehicleY)"/>
+  </include>
+
+  <include file="$(find terrain_analysis)/launch/terrain_analysis.launch" />
+
+  <include file="$(find terrain_analysis_ext)/launch/terrain_analysis_ext.launch" >
+    <arg name="checkTerrainConn" value="$(arg checkTerrainConn)"/>
+  </include>
+
+  <!-- <include file="$(find terrain_rf)/launch/terrain_RF.launch" /> -->
+
+  <include file="$(find sensor_scan_generation)/launch/sensor_scan_generation.launch" />
+
+  <include file="$(find loam_interface)/launch/loam_interface.launch" />
+
+  <node pkg="tf" type="static_transform_publisher" name="map_to_camera_init"  args="0 0 0 0 0 0 map camera_init 10" />
+  <!-- <node pkg="tf" type="static_transform_publisher" name="base_link_to_vehicle"  args="0 0 0 0 0 1.57 aft_mapped sensor 10" /> -->
+
+  <node launch-prefix="nice" pkg="rviz" type="rviz" name="rvizGA" args="-d $(find vehicle_simulator)/rviz/vehicle_simulator.rviz" respawn="true"/>
+
+</launch>
