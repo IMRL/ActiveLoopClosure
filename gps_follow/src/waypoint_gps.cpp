@@ -189,11 +189,10 @@ class GNSSOdom {
             std::vector<Eigen::Vector3d> path_points;
             path_points.reserve(marker_msg->points.size() - 1);
 
-            // 除最后一个点外，将geometry_msgs::Point类型的点转换为Eigen::Vector3d类型
             for (auto it = marker_msg->points.begin(); it != marker_msg->points.end() - 1; ++it) {
                 path_points.emplace_back(it->x, it->y, it->z);
             }
-            double LC_threshold = 20;  // 设置一个合适的距离阈值
+            double LC_threshold = 20; 
             double distance = sqrt(pow(target_node_point.x() - currentPose.x(), 2) + pow(target_node_point.y() - currentPose.y(), 2));    
 
             if(distance < LC_threshold)
@@ -217,7 +216,6 @@ class GNSSOdom {
                     point_in_mapframe.push_back(Eigen::Vector3d(p[0], p[1], p[2]));
                 }
                                 
-                // // 打印出接收到的点
                 // for (const auto& point : point_in_mapframe) {
                 //     ROS_INFO("Point: x=%f, y=%f, z=%f", point.x(), point.y(), point.z());
                 // }
