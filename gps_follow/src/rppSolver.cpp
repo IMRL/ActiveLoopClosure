@@ -1,6 +1,3 @@
-//实现指定起点到指定终点的rpp问题，且corner case基本解决
-
-
 #include "rppSolver.hpp"
 #include <iomanip> 
 typedef boost::adjacency_list<boost::vecS, boost::vecS, boost::undirectedS,
