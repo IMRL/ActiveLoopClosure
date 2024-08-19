@@ -1,4 +1,3 @@
-//读取OSM原图，不包含轨迹顺序，连接关系对应原来的先验图
 #include <fstream>
 #include <sstream>
 #include <iostream>
