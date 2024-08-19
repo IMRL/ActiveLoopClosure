@@ -1,17 +1,3 @@
-//上个版本主要跟新根据轨迹更新原图边权重的函数，这个版本主要调节一下优化方程
-//主要修改一下current 路径的生成
-//尝试一下不需要 insertcurrentpose
-//完成rpp规划
-
-//几个bug需要解决,
-//1.莫名其妙飞线。。
-//2.终点不在图中
-//3.rpp构建的图存在问题。。
-//current点的确定，current_path的确定
-//visted_node的确定
-
-//这个版本添加主动回环路线的发布
-
 // sys
 #include <queue>
 #include <deque>
